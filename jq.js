@@ -63,5 +63,6 @@ function Ischeck() {
         return e._id;
     });
     newID = _id[todoListData.length - 1] + 1;
+    if (!newID) { newID = 1; }
     return newID;
 }
