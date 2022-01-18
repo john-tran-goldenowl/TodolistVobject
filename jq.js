@@ -22,7 +22,8 @@ function render() {
             <p>${liClass} </p>
         </div>`
     });
-    $('.items').html(html)
+    $('.items').html(html);
+    console.log(todoListData)
 }
 render();
 
@@ -46,9 +47,8 @@ function deleteItem(id) {
 
 $('#addtolist').click(function() {
     task = $('#task').val();
-
     item = {
-        "_id": todoListData.length + 1,
+        "_id": Ischeck(),
         "task": task,
         "done": false
     }
@@ -57,3 +57,11 @@ $('#addtolist').click(function() {
     $('#task').focus();
     render()
 })
+
+function Ischeck() {
+    _id = todoListData.map(function(e) {
+        return e._id;
+    });
+    newID = _id[todoListData.length - 1] + 1;
+    return newID;
+}
